@@ -26,29 +26,28 @@ class ObserverforDisabledFrontend implements ObserverInterface
 
 
     /**
-     * @var DataPersistorInterface
+     * @var Magento\Backend\Helper\Data
      */
-    private $dataPersistor;
+    private $HelperBackend;
 
     /**
-     * @param \Magento\Captcha\Helper\Data $helper
      * @param \Magento\Framework\App\ActionFlag $actionFlag
      * @param \Magento\Framework\Message\ManagerInterface $messageManager
      * @param \Magento\Framework\App\Response\RedirectInterface $redirect
-     * @param CaptchaStringResolver $captchaStringResolver
      */
     public function __construct(
         \Magento\Framework\App\ActionFlag $actionFlag,
         \Magento\Framework\Message\ManagerInterface $messageManager,
-        \Magento\Framework\App\Response\RedirectInterface $redirect
+        \Magento\Framework\App\Response\RedirectInterface $redirect,
+		\Magento\Backend\Helper\Data $HelperBackend
     ) {
         $this->_actionFlag = $actionFlag;
         $this->messageManager = $messageManager;
         $this->redirect = $redirect;
+		$this->HelperBackend = $HelperBackend;
     }
 
     /**
-     * Check CAPTCHA on Contact Us page
      *
      * @param \Magento\Framework\Event\Observer $observer
      * @return void
@@ -61,7 +60,7 @@ class ObserverforDisabledFrontend implements ObserverInterface
 		/*$this->redirect->redirect($controller->getResponse(),
 		 'https://www.google.co.in/?gfe_rd=cr&ei=OHoGWLzeIqnT8geDpr3wDQ');*/
 		 
-		 $this->redirect->redirect($controller->getResponse(),'admin');
+		 $this->redirect->redirect($controller->getResponse(),$this->HelperBackend->getHomePageUrl());
 
     }
 
