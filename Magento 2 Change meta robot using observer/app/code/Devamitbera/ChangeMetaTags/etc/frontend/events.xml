@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_generate_blocks_before">
+        <observer name="catagory_meta" instance="Devamitbera\ChangeMetaTags\Observer\ObserverChangeMetaTagForCategory" />
+    </event>
+</config>
