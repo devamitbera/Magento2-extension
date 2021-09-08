@@ -1,0 +1,28 @@
+{
+    "name": "devamitbera/meta-data-on-category",
+    "version": "1.0.0",
+    "description": "Category page NOINDEX,NOFOLLOW when filters apply",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-layered-navigation": "^100.3.*|| ^100.4.*"
+    },
+    "license": [
+        "Open Software License (OSL)"
+    ],
+    "authors": [
+        {
+            "name": "Amit Bera",
+            "email": "dev.amitbera@gmail.com",
+            "homepage": "https://www.amitbera.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Devamitbera\\MetaDataOnCategory\\": ""
+        }
+    }
+}
